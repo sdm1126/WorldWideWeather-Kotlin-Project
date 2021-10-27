@@ -3,6 +3,7 @@ package kr.or.mrhi.openweather
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import androidx.annotation.Nullable
 import androidx.lifecycle.MutableLiveData
 import kr.or.mrhi.openweather.Data.WeatherData
 import retrofit2.Call
@@ -13,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        callWeatherKeyword("37.564648601090646", "127.02888760975634", "hourly,daily")
+        callWeatherKeyword("33.44", "94.04", "minutely")
     }
     fun callWeatherKeyword(
         lat : String,
@@ -21,11 +22,11 @@ class MainActivity : AppCompatActivity() {
         exclude : String
     ){
         val weather = MutableLiveData<WeatherData>()
-        WeatherApi.getWeatherAddress(lat = lat, lon = lon, exclude = exclude ,WeatherAPI.API_KEY)
+        WeatherApi.getWeatherAddress(lat = lat, lon = lon, exclude = exclude, WeatherAPI.API_KEY)
             .enqueue(object : retrofit2.Callback<WeatherData>{
                 override fun onResponse(call: Call<WeatherData>, response: Response<WeatherData>) {
                     weather.value = response.body()
-                    Log.d("weather", weather.value.toString())
+                    Log.d("웨더", weather.value?.hourly?.get(0).toString())
 
                 }
 
