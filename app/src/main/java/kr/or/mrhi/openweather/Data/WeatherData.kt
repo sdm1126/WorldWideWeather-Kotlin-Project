@@ -1,5 +1,7 @@
 package kr.or.mrhi.openweather.Data
 
+import java.io.Serializable
+
 data class WeatherData(
     val current: Current,
     val daily: List<Daily>,
@@ -9,4 +11,4 @@ data class WeatherData(
     val minutely: List<Minutely>,
     val timezone: String,
     val timezone_offset: Int
-)
+) : Serializable

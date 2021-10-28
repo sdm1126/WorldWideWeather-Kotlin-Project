@@ -1,40 +1,54 @@
 package kr.or.mrhi.openweather
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import androidx.annotation.Nullable
 import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.*
 import kr.or.mrhi.openweather.Data.WeatherData
-import retrofit2.Call
-import retrofit2.Response
+import kr.or.mrhi.openweather.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     private val WeatherApi = WeatherClient.apiService
+    private lateinit var weatherSource : WeatherSource
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        callWeatherKeyword("33.44", "94.04", "minutely")
+        setContentView(binding.root)
+        binding.button.setOnClickListener {
+            runBlocking {
+                callWeatherKeyword("51.5072", "-0.1275", "minutely", "kr")
+            }
+            Intent(this@MainActivity, WeatherActivity::class.java).apply {
+                putExtra("data", weatherSource)
+            }.run {
+                startActivity(this)
+            }
+        }
     }
-    fun callWeatherKeyword(
-        lat : String,
-        lon : String,
-        exclude : String
-    ){
+
+    suspend fun callWeatherKeyword(
+        lat: String,
+        lon: String,
+        exclude: String,
+        lang: String
+    ) {
         val weather = MutableLiveData<WeatherData>()
-        WeatherApi.getWeatherAddress(lat = lat, lon = lon, exclude = exclude, WeatherAPI.API_KEY)
-            .enqueue(object : retrofit2.Callback<WeatherData>{
-                override fun onResponse(call: Call<WeatherData>, response: Response<WeatherData>) {
-                    weather.value = response.body()
-                    Log.d("웨더", weather.value?.hourly?.get(0).toString())
-
-                }
-
-                override fun onFailure(call: Call<WeatherData>, t: Throwable) {
-                    Log.d("weather","전송 실패 ${t.printStackTrace()}")
-                    t.printStackTrace()
-                }
-            })
+        weather.value = WeatherApi.getWeatherAddress(
+            lat = lat,
+            lon = lon,
+            exclude = exclude,
+            lang = lang,
+            WeatherAPI.API_KEY
+        )
+        weatherSource = WeatherSource(
+                weather.value?.timezone!!,
+                weather.value?.current?.weather?.get(0)!!.main,
+                weather.value?.current?.temp.toString(),
+                weather.value?.hourly!!,
+                weather.value?.daily!!
+        )
     }
 }
 

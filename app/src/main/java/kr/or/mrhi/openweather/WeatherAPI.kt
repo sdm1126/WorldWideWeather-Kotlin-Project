@@ -2,6 +2,7 @@ package kr.or.mrhi.openweather
 
 import kr.or.mrhi.openweather.Data.WeatherData
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -14,10 +15,11 @@ class WeatherAPI {
 
 interface WeatherApiService{
     @GET("data/2.5/onecall")
-    fun getWeatherAddress(
+    suspend fun getWeatherAddress(
         @Query("lat") lat : String,
         @Query("lon") lon : String,
         @Query("exclude") exclude : String,
+        @Query("lang") lang : String,
         @Query("appid") appid : String
-    ): Call<WeatherData>
+    ): WeatherData
 }
