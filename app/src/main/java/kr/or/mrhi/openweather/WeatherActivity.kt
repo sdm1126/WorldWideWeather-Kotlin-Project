@@ -12,21 +12,28 @@ import kr.or.mrhi.openweather.databinding.ActivityWeatherBinding
 
 class WeatherActivity : AppCompatActivity() {
     private val binding by lazy { ActivityWeatherBinding.inflate(layoutInflater) }
-    private var arrayList = mutableListOf<String>()
     private lateinit var weatherSource : WeatherSource
     private lateinit var rvWeatherAdapter : WeatherRecyclerAdapter
     private lateinit var lvWeatherAdapter : WeatherListAdapter
+    private lateinit var address : String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
         Log.d("결과", "나옴")
-        weatherSource = intent.getSerializableExtra("data") as WeatherSource
+        weatherSource = intent.getSerializableExtra("weatherSource") as WeatherSource
+        address = intent.getStringExtra("address").toString()
 
-        binding.tvWeatherLocation.text = weatherSource.timeZone
+        binding.tvWeatherLocation.text = address
         binding.tvWeatherCurrent.text = weatherSource.currentWeather
-        binding.tvWeatherTemp.text = String.format("%.1f",weatherSource.currentTemp.toDouble() - 273.15)
+        when(weatherSource.currentWeather){
+            "Clouds" -> binding.clWeather.setBackgroundResource(R.drawable.bg_cloudy)
+            "Rain" -> binding.clWeather.setBackgroundResource(R.drawable.bg_rainy)
+            "Snow" -> binding.clWeather.setBackgroundResource(R.drawable.bg_snowy)
+            else -> binding.clWeather.setBackgroundResource(R.drawable.bg_sunny)
+        }
+        binding.tvWeatherTemp.text = String.format("%.1f",weatherSource.currentTemp.toDouble() - 273.15) + "℃"
 
         binding.rvWeather.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

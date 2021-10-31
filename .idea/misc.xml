@@ -7,6 +7,16 @@
         <entry key="..\:/Users/study/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/activity_weather.xml" value="0.4" />
         <entry key="..\:/Users/study/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/lv_weather_item.xml" value="0.4" />
         <entry key="..\:/Users/study/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/rv_weather_item.xml" value="0.4" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/drawable/ic_cloud_lightskyblue.xml" value="0.1953125" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/drawable/ic_cloud_royalblue.xml" value="0.17314814814814813" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/drawable/ic_cloud_white.xml" value="0.17314814814814813" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/activity_main.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/activity_map.xml" value="0.22" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/activity_weather.xml" value="0.17916666666666667" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/item_weather_list.xml" value="0.22" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/item_weather_recycler.xml" value="0.1" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/lv_weather_item.xml" value="0.175" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/OpenWeather/app/src/main/res/layout/rv_weather_item.xml" value="0.175" />
       </map>
     </option>
   </component>
@@ -15,5 +25,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.17916666666666667" />
+      </ProjectState>
+    </option>
   </component>
 </project>
