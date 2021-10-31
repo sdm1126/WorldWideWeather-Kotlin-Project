@@ -45,8 +45,9 @@ class WeatherListAdapter(val context: Context, val arrayList: MutableList<Daily>
             7 -> day = "토요일"
         }
 
-        binding.textView.text = day
-        binding.textView2.text = String.format("%.1f",mArrayList.get(position).temp.day - 273.15)
+        binding.tvDow.text = day
+        binding.tvMax.text = String.format("%.1f",mArrayList.get(position).temp.max - 273.15)
+        binding.tvMin.text = String.format("%.1f",mArrayList.get(position).temp.min - 273.15)
         Glide.with(mContext).load(url).into(binding.imageView)
         return binding.root
     }

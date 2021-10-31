@@ -14,8 +14,8 @@ import java.util.*
 class WeatherRecyclerAdapter(val context: Context, weatherList: MutableList<Hourly>):
         RecyclerView.Adapter<WeatherRecyclerAdapter.CustomViewHolder>(){
 
-    private lateinit var mContext: Context
-    private lateinit var mWeatherList: MutableList<Hourly>
+    private var mContext: Context
+    private var mWeatherList: MutableList<Hourly>
 
     init {
         this.mContext = context
