@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="120dp"
                 android:gravity="center"
-                android:text="World Wide Weather"
+                android:text="@string/app_name"
                 android:textColor="@color/midnightblue"
                 android:textSize="30sp"
                 android:textStyle="bold"
@@ -46,7 +46,7 @@
                 android:layout_height="200dp"
                 android:layout_marginTop="60dp"
                 android:adjustViewBounds="true"
-                android:src="@drawable/ic_worldwideweather"
+                android:src="@drawable/ic_openweather"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />

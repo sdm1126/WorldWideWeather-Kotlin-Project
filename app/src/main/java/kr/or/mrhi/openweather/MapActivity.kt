@@ -79,21 +79,25 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun findMyLatLng() : Location {
         var hasFineLocationPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
         var hasCoarseLocationPermission = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
-        var myLatLng : Location? = null
+        var myLatLng : Location?
 
         // 위치 액세스 권한 요청 승인 상태 시,
         if (hasFineLocationPermission == PackageManager.PERMISSION_GRANTED && hasCoarseLocationPermission == PackageManager.PERMISSION_GRANTED) {
-            val locationProvider = LocationManager.GPS_PROVIDER
             // getLastKnownLocation(): 가장 마지막에 기록된 위치 정보를 가져오는 메소드
-            myLatLng = locationManager?.getLastKnownLocation(locationProvider)
+            var locationProvider = LocationManager.GPS_PROVIDER
+            myLatLng = locationManager.getLastKnownLocation(locationProvider)
+            if(myLatLng == null){
+                myLatLng = locationManager.getLastKnownLocation( LocationManager.NETWORK_PROVIDER )
+            }
 
-        // 현재 위치 액세스 권한 요청 미승인 상태 시,
+
+            // 현재 위치 액세스 권한 요청 미승인 상태 시,
         } else {
             // 이전에 위치 액세스 권한 요청 거부한 적이 있을 경우,
             if(ActivityCompat.shouldShowRequestPermissionRationale(this, REQUIRED_PERMISSIONS[0])){
                 Toast.makeText(this, "위치 액세스 권한 승인이 필요합니다.", Toast.LENGTH_SHORT).show()
                 ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE)
-            // 이전에 위치 액세스 권한 요청 거부한 적이 별도로 없는 경우,
+                // 이전에 위치 액세스 권한 요청 거부한 적이 별도로 없는 경우,
             } else{
                 ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, PERMISSIONS_REQUEST_CODE)
             }
@@ -144,7 +148,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.e("확인", "findSelectedLocation()_" + e.printStackTrace())
             }
             if(addressList!!.isNotEmpty()){
-                address = (addressList[0].adminArea + ", " + addressList[0].countryName).replace("null, ", "")
+                address = (addressList[0].adminArea + " " + addressList[0].countryName).replace("null", "")
                 Log.d("확인", "선택한 위치(주소) : $address")
             } else {
                 address = weather.value?.timezone + "(Timezone)" // 불러올 주소가 없을 경우, Openweather API 데이터의 timezone으로 대체
