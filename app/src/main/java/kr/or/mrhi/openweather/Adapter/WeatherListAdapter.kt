@@ -46,7 +46,7 @@ class WeatherListAdapter(val context: Context, val arrayList: MutableList<Daily>
         }
 
         binding.textView.text = day
-        binding.textView2.text = String.format("%.1f",mArrayList.get(position).temp.day - 273.15)
+        binding.textView2.text = String.format("%.1f",mArrayList.get(position).temp.day - 273.15) + "℃"
         Glide.with(mContext).load(url).into(binding.imageView)
         return binding.root
     }

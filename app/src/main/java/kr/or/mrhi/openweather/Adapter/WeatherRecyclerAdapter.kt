@@ -34,7 +34,7 @@ class WeatherRecyclerAdapter(val context: Context, weatherList: MutableList<Hour
         val date = Date(mWeatherList.get(position).dt.toLong()*1000)
         val dateF = sdf.format(date)
         with(holder){
-            binding.tvRvItemTemp.text =String.format("%.1f",mWeatherList.get(position).temp - 273.15)
+            binding.tvRvItemTemp.text = String.format("%.1f",mWeatherList.get(position).temp - 273.15) + "℃"
             binding.tvRvItemTime.text = dateF
             Glide.with(mContext).load(url).into(binding.ivRvItemIcon)
         }
