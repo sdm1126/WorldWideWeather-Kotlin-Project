@@ -39,7 +39,6 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     private val REQUIRED_PERMISSIONS = arrayOf(Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION)
 
     // google map
-    private val markerOptions = MarkerOptions()
     private var latitude : Double? = null
     private var longitude : Double? = null
     private var address : String? = null
@@ -120,7 +119,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.e("확인", "findMyLocation()_" + e.printStackTrace())
             }
             if(addressList != null){
-                address = addressList[0].getAddressLine(0)
+                address = (addressList[0].adminArea + ", " + addressList[0].countryName).replace("null", "")
                 Log.d("확인", "내 위치(주소) : $address")
             }
         }
@@ -143,7 +142,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.e("확인", "findSelectedLocation()_" + e.printStackTrace())
             }
             if(addressList!!.isNotEmpty()){
-                address = (addressList[0].adminArea + " " + addressList[0].countryName).replace("null", "")
+                address = (addressList[0].adminArea + ", " + addressList[0].countryName).replace("null", "")
                 Log.d("확인", "선택한 위치(주소) : $address")
             } else {
                 address = weather.value?.timezone + "(Timezone)" // 불러올 주소가 없을 경우, Openweather API 데이터의 timezone으로 대체
@@ -155,6 +154,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         // 첫 화면 내 위치 띄우기
         val myLocation = LatLng(latitude!!, longitude!!)
+        val markerOptions = MarkerOptions()
         markerOptions.title(address)
         markerOptions.snippet("My Location")
         markerOptions.position(myLocation)
@@ -167,6 +167,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
             binding.clMap.visibility = View.VISIBLE
             googleMap.clear()
             findSelectedLocation(latLng)
+            val markerOptions = MarkerOptions()
             markerOptions.title(address)
             markerOptions.position(latLng)
             googleMap.addMarker(markerOptions)

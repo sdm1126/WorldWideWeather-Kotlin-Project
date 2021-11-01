@@ -31,6 +31,7 @@ class WeatherActivity : AppCompatActivity() {
             "Clouds" -> binding.clWeather.setBackgroundResource(R.drawable.bg_cloudy)
             "Rain" -> binding.clWeather.setBackgroundResource(R.drawable.bg_rainy)
             "Snow" -> binding.clWeather.setBackgroundResource(R.drawable.bg_snowy)
+            "Thunderstorm" -> binding.clWeather.setBackgroundResource(R.drawable.bg_thunderstorm)
             else -> binding.clWeather.setBackgroundResource(R.drawable.bg_sunny)
         }
         binding.tvWeatherTemp.text = String.format("%.1f",weatherSource.currentTemp.toDouble() - 273.15) + "℃"
