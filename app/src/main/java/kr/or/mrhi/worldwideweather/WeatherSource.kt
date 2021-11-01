@@ -1,8 +1,7 @@
-package kr.or.mrhi.openweather
+package kr.or.mrhi.worldwideweather
 
-import android.os.Parcelable
-import kr.or.mrhi.openweather.Data.Daily
-import kr.or.mrhi.openweather.Data.Hourly
+import kr.or.mrhi.worldwideweather.Data.Daily
+import kr.or.mrhi.worldwideweather.Data.Hourly
 import java.io.Serializable
 
 data class WeatherSource(

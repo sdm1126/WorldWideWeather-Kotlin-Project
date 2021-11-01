@@ -1,4 +1,4 @@
-package kr.or.mrhi.openweather
+package kr.or.mrhi.worldwideweather
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory

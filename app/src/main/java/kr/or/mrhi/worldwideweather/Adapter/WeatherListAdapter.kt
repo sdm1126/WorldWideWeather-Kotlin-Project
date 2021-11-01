@@ -1,4 +1,4 @@
-package kr.or.mrhi.openweather.Adapter
+package kr.or.mrhi.worldwideweather.Adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,10 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.bumptech.glide.Glide
-import kr.or.mrhi.openweather.Data.Daily
-import kr.or.mrhi.openweather.Data.Hourly
-import kr.or.mrhi.openweather.databinding.LvWeatherItemBinding
-import java.text.SimpleDateFormat
+import kr.or.mrhi.worldwideweather.Data.Daily
+import kr.or.mrhi.worldwideweather.databinding.LvWeatherItemBinding
 import java.util.*
 
 class WeatherListAdapter(val context: Context, val arrayList: MutableList<Daily>) : BaseAdapter() {

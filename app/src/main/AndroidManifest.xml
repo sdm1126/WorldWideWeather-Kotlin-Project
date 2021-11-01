@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="kr.or.mrhi.openweather">
+    package="kr.or.mrhi.worldwideweather">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -15,13 +15,13 @@
         android:theme="@style/Theme.OpenWeather"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".WeatherActivity"
+            android:name="kr.or.mrhi.worldwideweather.WeatherActivity"
             android:exported="true" />
         <activity
-            android:name=".MapActivity"
+            android:name="kr.or.mrhi.worldwideweather.MapActivity"
             android:exported="true" />
         <activity
-            android:name=".MainActivity"
+            android:name="kr.or.mrhi.worldwideweather.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +32,8 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyABIkTGEjLcpK0XsfOeKBQuTd3mjRwSo70" />
+            android:value="@string/googlemap_api_key" />
+
     </application>
 
 </manifest>

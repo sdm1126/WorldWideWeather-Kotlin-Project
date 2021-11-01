@@ -1,7 +1,6 @@
-package kr.or.mrhi.openweather
+package kr.or.mrhi.worldwideweather
 
 import android.Manifest
-import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
@@ -17,21 +16,17 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.MutableLiveData
 import com.bumptech.glide.Glide
-import com.google.android.gms.location.FusedLocationProviderClient
-import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.coroutines.runBlocking
-import kr.or.mrhi.openweather.Data.WeatherData
-import kr.or.mrhi.openweather.databinding.ActivityMapBinding
+import kr.or.mrhi.worldwideweather.Data.WeatherData
+import kr.or.mrhi.worldwideweather.databinding.ActivityMapBinding
 import org.jetbrains.anko.locationManager
 import java.io.IOException
-import java.text.SimpleDateFormat
 import java.util.*
 
 class MapActivity : AppCompatActivity(), OnMapReadyCallback {

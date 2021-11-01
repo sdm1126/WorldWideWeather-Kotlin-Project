@@ -1,4 +1,4 @@
-package kr.or.mrhi.openweather
+package kr.or.mrhi.worldwideweather
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

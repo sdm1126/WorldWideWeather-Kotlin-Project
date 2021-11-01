@@ -1,13 +1,12 @@
-package kr.or.mrhi.openweather.Adapter
+package kr.or.mrhi.worldwideweather.Adapter
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kr.or.mrhi.openweather.Data.Hourly
-import kr.or.mrhi.openweather.databinding.RvWeatherItemBinding
+import kr.or.mrhi.worldwideweather.Data.Hourly
+import kr.or.mrhi.worldwideweather.databinding.RvWeatherItemBinding
 import java.text.SimpleDateFormat
 import java.util.*
 

@@ -1,4 +1,4 @@
-package kr.or.mrhi.openweather.Data
+package kr.or.mrhi.worldwideweather.Data
 
 import java.io.Serializable
 

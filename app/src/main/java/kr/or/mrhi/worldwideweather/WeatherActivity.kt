@@ -1,14 +1,14 @@
-package kr.or.mrhi.openweather
+package kr.or.mrhi.worldwideweather
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
-import kr.or.mrhi.openweather.Adapter.WeatherListAdapter
-import kr.or.mrhi.openweather.Adapter.WeatherRecyclerAdapter
-import kr.or.mrhi.openweather.Data.Daily
-import kr.or.mrhi.openweather.Data.Hourly
-import kr.or.mrhi.openweather.databinding.ActivityWeatherBinding
+import kr.or.mrhi.worldwideweather.Adapter.WeatherListAdapter
+import kr.or.mrhi.worldwideweather.Adapter.WeatherRecyclerAdapter
+import kr.or.mrhi.worldwideweather.Data.Daily
+import kr.or.mrhi.worldwideweather.Data.Hourly
+import kr.or.mrhi.worldwideweather.databinding.ActivityWeatherBinding
 
 class WeatherActivity : AppCompatActivity() {
     private val binding by lazy { ActivityWeatherBinding.inflate(layoutInflater) }

@@ -1,14 +1,12 @@
-package kr.or.mrhi.openweather
+package kr.or.mrhi.worldwideweather
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.*
-import kr.or.mrhi.openweather.Data.WeatherData
-import kr.or.mrhi.openweather.databinding.ActivityMainBinding
+import kr.or.mrhi.worldwideweather.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
