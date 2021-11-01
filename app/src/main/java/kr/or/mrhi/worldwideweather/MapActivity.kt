@@ -119,7 +119,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.e("확인", "findMyLocation()_" + e.printStackTrace())
             }
             if(addressList != null){
-                address = (addressList[0].adminArea + ", " + addressList[0].countryName).replace("null", "")
+                address = (addressList[0].adminArea + " " + addressList[0].countryName).replace("null", "")
                 Log.d("확인", "내 위치(주소) : $address")
             }
         }
@@ -142,7 +142,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback {
                 Log.e("확인", "findSelectedLocation()_" + e.printStackTrace())
             }
             if(addressList!!.isNotEmpty()){
-                address = (addressList[0].adminArea + ", " + addressList[0].countryName).replace("null", "")
+                address = (addressList[0].adminArea + " " + addressList[0].countryName).replace("null", "")
                 Log.d("확인", "선택한 위치(주소) : $address")
             } else {
                 address = weather.value?.timezone + "(Timezone)" // 불러올 주소가 없을 경우, Openweather API 데이터의 timezone으로 대체
