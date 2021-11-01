@@ -5,7 +5,6 @@ plugins {
 
 Properties properties = new Properties()
 properties.load(project.rootProject.file('local.properties').newDataInputStream())
-def googleMapApiKey = properties.getProperty('googlemap_api_key')
 
 android {
     buildFeatures{
@@ -20,7 +19,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        manifestPlaceholders = [googleMapApiKey:googleMapApiKey]
         buildConfigField("String", "OPENWEATHER_API_KEY", properties['openweather_api_key'])
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
